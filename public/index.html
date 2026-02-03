@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>123 木頭人</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div id="main-container" class="container">
+        
+        <div id="login-screen">
+            <h1>🚦 木頭人</h1>
+            <p>綠燈狂點，紅燈停手</p>
+            <input type="text" id="username" placeholder="輸入名字">
+            <button class="btn-primary" id="join-btn">加入遊戲</button>
+        </div>
+
+        <div id="game-screen" style="display: none;">
+            <div id="status-text" class="status-text">準備</div>
+            
+            <div class="progress-box">
+                <div id="my-bar" class="progress-bar"></div>
+            </div>
+
+            <div id="tap-zone" class="tap-area">點擊奔跑</div>
+        </div>
+
+        <div id="dead-screen" class="overlay" style="display: none;">
+            <div class="text-dead">💀 淘汰</div>
+            <p>紅燈時動了！</p>
+        </div>
+
+        <div id="win-screen" class="overlay" style="display: none;">
+            <div class="text-win">🏆 抵達終點</div>
+            <p>請等待排名...</p>
+        </div>
+    </div>
+    <script src="client.js"></script>
+</body>
+</html>

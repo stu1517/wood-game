@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木頭人主控</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <style>body { background: #111; overflow: auto; }</style>
+</head>
+<body>
+    <div class="admin-panel">
+        <h1>🚦 主控台</h1>
+        <button onclick="if(confirm('重置?')) socket.emit('admin-reset')" style="padding:10px;">重置遊戲</button>
+        
+        <div style="margin: 20px 0;">
+            <button id="green-btn" class="control-btn btn-green">🟢 綠燈</button>
+            <button id="red-btn" class="control-btn btn-red">🔴 紅燈</button>
+        </div>
+
+        <h2 style="color:gold">前三名</h2>
+        <div id="winner-list" style="font-size:1.5rem; color:gold;"></div>
+
+        <h3>玩家狀態 (<span id="count">0</span>)</h3>
+        <div id="player-grid" class="player-grid"></div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

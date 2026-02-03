@@ -1,0 +1,67 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #222;
+    color: white;
+    margin: 0;
+    overflow: hidden; /* 禁止滑動 */
+    touch-action: manipulation; /* 優化點擊反應 */
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: background-color 0.1s;
+}
+
+/* 登入區 */
+#login-screen { padding-top: 80px; text-align: center; width: 80%; }
+input { padding: 15px; font-size: 1.5rem; width: 100%; margin-bottom: 20px; text-align: center; border-radius: 10px; border: none; }
+.btn-primary { background: #3498db; color: white; padding: 15px; font-size: 1.5rem; border: none; border-radius: 10px; width: 100%; cursor: pointer; }
+
+/* 遊戲區 */
+#game-screen { width: 100%; height: 100%; display: flex; flex-direction: column; }
+.status-text { font-size: 5rem; text-align: center; margin-top: 40px; font-weight: 900; text-shadow: 0 0 10px rgba(0,0,0,0.5); pointer-events: none; }
+
+/* 進度條 */
+.progress-box { width: 80%; height: 20px; background: #444; margin: 20px auto; border-radius: 10px; border: 2px solid #fff; overflow: hidden; }
+.progress-bar { height: 100%; width: 0%; background: #f1c40f; transition: width 0.1s linear; }
+
+/* 點擊區 */
+.tap-area { 
+    flex-grow: 1; 
+    margin: 10px 20px 30px 20px; 
+    border: 4px dashed rgba(255,255,255,0.4); 
+    border-radius: 20px; 
+    display: flex; justify-content: center; align-items: center; 
+    font-size: 2rem; color: rgba(255,255,255,0.6); 
+    user-select: none; 
+}
+.tap-area:active { background: rgba(255,255,255,0.2); transform: scale(0.98); }
+
+/* 變色狀態 (核心) */
+.bg-green { background-color: #27ae60 !important; }
+.bg-red { background-color: #c0392b !important; }
+.bg-dead { background-color: #2c3e50 !important; filter: grayscale(100%); }
+
+/* 覆蓋層 (勝利/淘汰) */
+.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 99; }
+.text-dead { color: #e74c3c; font-size: 4rem; font-weight: bold; }
+.text-win { color: #f1c40f; font-size: 3rem; font-weight: bold; }
+
+/* Admin 樣式 */
+.admin-panel { width: 100%; padding: 20px; text-align: center; }
+.control-btn { width: 45%; height: 100px; font-size: 2rem; border: none; border-radius: 15px; margin: 5px; cursor: pointer; font-weight: bold; color: white; }
+.btn-green { background: #27ae60; }
+.btn-red { background: #c0392b; }
+.player-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin-top: 20px; }
+.p-card { background: #333; padding: 5px; border-radius: 5px; font-size: 0.8rem; }
+.p-dead { border: 2px solid red; opacity: 0.4; }
+.p-win { border: 2px solid gold; color: gold; }
